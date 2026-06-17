@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Cup 2026 Live Stream</title>
+  <title>World Cup 2026 Live Stream | Indonesia</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -17,7 +17,7 @@
     .header {
       background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0f 100%);
       border-bottom: 1px solid #2a2a3e;
-      padding: 1rem 2rem;
+      padding: 0.75rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -28,24 +28,22 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       gap: 0.75rem;
     }
-    .logo-icon { font-size: 2.5rem; animation: float 3s ease-in-out infinite; }
-    .logo-text { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .logo-sub { font-size: 0.7rem; color: #888; }
-    .badge { background: #ff4444; color: #fff; font-size: 0.6rem; padding: 0.2rem 0.5rem; border-radius: 4px; animation: pulse 1.5s infinite; }
+    .logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { font-size: 2rem; animation: float 3s ease-in-out infinite; }
+    .logo-text { font-size: 1.25rem; font-weight: 800; background: linear-gradient(135deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .logo-sub { font-size: 0.65rem; color: #888; }
+    .badge { background: #ff4444; color: #fff; font-size: 0.55rem; padding: 0.15rem 0.4rem; border-radius: 4px; animation: pulse 1.5s infinite; display: inline-block; margin-left: 0.25rem; }
     
     /* Tabs */
-    .tabs { display: flex; gap: 0.5rem; }
+    .tabs { display: flex; gap: 0.35rem; flex-wrap: wrap; }
     .tab {
-      padding: 0.5rem 1.25rem;
+      padding: 0.4rem 1rem;
       border-radius: 8px;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       cursor: pointer;
       transition: all 0.2s;
       border: none;
@@ -55,23 +53,20 @@
     .tab:not(.active):hover { color: #fff; }
     
     /* Main */
-    .main { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; }
+    .main { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; }
     
     /* Hero */
-    .hero {
-      text-align: center;
-      padding: 2rem 0 1rem;
-    }
-    .hero-icon { font-size: 4rem; animation: float 3s ease-in-out infinite; }
-    .hero h1 { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0.5rem 0; }
-    .hero p { color: #888; }
+    .hero { text-align: center; padding: 1.5rem 0 1rem; }
+    .hero-icon { font-size: 3rem; animation: float 3s ease-in-out infinite; }
+    .hero h1 { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0.25rem 0; }
+    .hero p { color: #888; font-size: 0.85rem; }
     
     /* Video Player */
-    .player-wrap { display: none; margin-bottom: 1.5rem; }
+    .player-wrap { display: none; margin-bottom: 1rem; }
     .player-wrap.active { display: block; }
     .player-box {
       background: #000;
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
       aspect-ratio: 16/9;
       position: relative;
@@ -79,93 +74,142 @@
     .player-box video { width: 100%; height: 100%; }
     .player-info {
       background: #1a1a2e;
-      padding: 1rem;
+      padding: 0.75rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-radius: 0 0 16px 16px;
+      border-radius: 0 0 12px 12px;
+      gap: 1rem;
     }
     .channel-name { font-weight: 700; color: #ffd700; }
-    .close-btn { background: #ff4444; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; }
+    .channel-sub { font-size: 0.7rem; color: #888; }
+    .close-btn { background: #ff4444; color: #fff; border: none; padding: 0.4rem 0.75rem; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.8rem; white-space: nowrap; }
     
     /* Grid */
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
     
     /* Cards */
-    .card { background: #12121a; border-radius: 16px; border: 1px solid #2a2a3e; overflow: hidden; }
-    .card-header { padding: 1rem 1.25rem; border-bottom: 1px solid #2a2a3e; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
-    .card-header .icon { font-size: 1.25rem; }
+    .card { background: #12121a; border-radius: 12px; border: 1px solid #2a2a3e; overflow: hidden; }
+    .card-header { padding: 0.75rem 1rem; border-bottom: 1px solid #2a2a3e; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; }
     .gold { color: #ffd700; }
     
     /* Match Card */
     .match {
-      padding: 1rem 1.25rem;
+      padding: 0.85rem 1rem;
       border-bottom: 1px solid #1a1a24;
       cursor: pointer;
       transition: all 0.2s;
     }
-    .match:hover { background: #1a1a2e; }
     .match:last-child { border-bottom: none; }
-    .match-header { display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.75rem; }
-    .live-badge { background: #ff4444; color: #fff; padding: 0.15rem 0.5rem; border-radius: 4px; animation: pulse 1.5s infinite; }
-    .upcoming-badge { background: #2288ff; color: #fff; padding: 0.15rem 0.5rem; border-radius: 4px; }
-    .finished-badge { background: #444; color: #aaa; padding: 0.15rem 0.5rem; border-radius: 4px; }
+    .match:hover { background: #1a1a2e; }
+    .match-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+    .live-badge { background: #ff4444; color: #fff; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.65rem; animation: pulse 1.5s infinite; }
+    .upcoming-badge { background: #2288ff; color: #fff; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.65rem; }
+    .finished-badge { background: #444; color: #aaa; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.65rem; }
+    .match-time { font-size: 0.7rem; color: #888; }
     .match-teams { display: flex; align-items: center; justify-content: space-between; }
-    .team { display: flex; align-items: center; gap: 0.5rem; min-width: 120px; }
+    .team { display: flex; align-items: center; gap: 0.4rem; min-width: 90px; }
     .team-left { justify-content: flex-start; }
     .team-right { justify-content: flex-end; }
-    .team-name { font-weight: 600; font-size: 0.9rem; }
-    .flag { font-size: 1.5rem; }
+    .team-name { font-weight: 600; font-size: 0.8rem; }
+    .flag { font-size: 1.25rem; }
     .score-box {
       background: #0a0a0f;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
+      min-width: 70px;
+      text-align: center;
     }
     .score-live { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; }
-    .vs { color: #555; font-size: 0.8rem; }
+    .vs { color: #555; font-size: 0.7rem; }
+    .watch-btn {
+      display: block;
+      margin-top: 0.5rem;
+      background: linear-gradient(135deg, #ff4444, #ff6600);
+      color: #fff;
+      border: none;
+      padding: 0.4rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+    }
+    .watch-btn:hover { opacity: 0.9; }
     
-    /* Channel List */
-    .channels { padding: 0.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; }
+    /* Channel Grid */
+    .channels { padding: 0.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.4rem; }
     .ch-item {
       background: #1a1a2e;
-      border-radius: 10px;
-      padding: 0.75rem;
+      border-radius: 8px;
+      padding: 0.6rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
       cursor: pointer;
       transition: all 0.2s;
       border: 1px solid transparent;
     }
     .ch-item:hover { border-color: #ffd700; transform: scale(1.02); }
-    .ch-icon { width: 36px; height: 36px; background: #2a2a3e; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
-    .ch-icon img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
-    .ch-name { font-weight: 600; font-size: 0.85rem; }
-    .ch-cat { font-size: 0.7rem; color: #888; }
-    .ch-play { margin-left: auto; color: #ffd700; }
+    .ch-icon { width: 32px; height: 32px; background: #2a2a3e; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; overflow: hidden; }
+    .ch-icon img { width: 100%; height: 100%; object-fit: contain; border-radius: 6px; }
+    .ch-name { font-weight: 600; font-size: 0.75rem; line-height: 1.2; }
+    .ch-cat { font-size: 0.6rem; color: #888; }
+    .ch-play { margin-left: auto; color: #ffd700; font-size: 0.8rem; }
+    
+    /* Category pills */
+    .cats { display: flex; gap: 0.4rem; padding: 0.75rem 1rem; flex-wrap: wrap; }
+    .cat {
+      background: #1a1a2e;
+      border: 1px solid #2a2a3e;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cat:hover, .cat.active { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; border-color: transparent; }
     
     /* Standings */
-    .standing-table { width: 100%; font-size: 0.8rem; }
-    .standing-table th { text-align: left; padding: 0.5rem 0.75rem; color: #666; border-bottom: 1px solid #2a2a3e; }
-    .standing-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #1a1a24; }
+    .standing-table { width: 100%; font-size: 0.75rem; }
+    .standing-table th { text-align: left; padding: 0.4rem 0.6rem; color: #666; border-bottom: 1px solid #2a2a3e; font-weight: 600; }
+    .standing-table td { padding: 0.4rem 0.6rem; border-bottom: 1px solid #1a1a24; }
     .standing-table tr:hover { background: #1a1a2e; }
-    .pos { width: 25px; text-align: center; }
     .pts { font-weight: 800; color: #ffd700; }
     
+    /* Search */
+    .search-wrap { padding: 0.75rem 1rem; }
+    .search-input {
+      width: 100%;
+      background: #1a1a2e;
+      border: 1px solid #2a2a3e;
+      border-radius: 8px;
+      padding: 0.6rem 0.85rem;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    .search-input:focus { border-color: #ffd700; }
+    
     /* Loading */
-    .loading { text-align: center; padding: 3rem; color: #888; }
-    .spinner { font-size: 2rem; animation: spin 1s linear infinite; }
+    .loading { text-align: center; padding: 2rem; color: #888; }
+    .spinner { font-size: 1.5rem; animation: spin 1s linear infinite; display: block; margin: 0 auto 0.5rem; }
     
     /* Animations */
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     @keyframes spin { to { transform: rotate(360deg); } }
     
     /* Footer */
-    .footer { text-align: center; padding: 2rem; color: #555; font-size: 0.8rem; }
+    .footer { text-align: center; padding: 1.5rem; color: #555; font-size: 0.75rem; }
+    
+    /* Section title */
+    .section-title { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; font-weight: 700; font-size: 0.85rem; border-bottom: 1px solid #2a2a3e; }
+    .section-icon { font-size: 1.1rem; }
   </style>
 </head>
 <body>
@@ -176,14 +220,15 @@
       <div class="logo">
         <span class="logo-icon">🏆</span>
         <div>
-          <div class="logo-text">World Cup 2026</div>
-          <div class="logo-sub">🇺🇸 🇨🇦 🇲🇽 Live Stream <span class="badge">LIVE</span></div>
+          <div class="logo-text">WC 2026 Stream<span class="badge">LIVE</span></div>
+          <div class="logo-sub">🇺🇸 🇨🇦 🇲🇽 Indonesia Edition</div>
         </div>
       </div>
       <div class="tabs">
-        <button class="tab active" onclick="showTab('live')">📺 Live</button>
-        <button class="tab" onclick="showTab('matches')">⚽ Matches</button>
-        <button class="tab" onclick="showTab('channels')">📡 Channels</button>
+        <button class="tab active" onclick="showTab('live', event)">🏠 Home</button>
+        <button class="tab" onclick="showTab('matches', event)">⚽ Matches</button>
+        <button class="tab" onclick="showTab('channels', event)">📺 Channels</button>
+        <button class="tab" onclick="showTab('indo', event)">🇮🇩 Indonesia</button>
       </div>
     </div>
   </header>
@@ -199,85 +244,125 @@
       <div class="player-info">
         <div>
           <div class="channel-name" id="now-playing">Channel Name</div>
-          <div style="font-size: 0.75rem; color: #888;">Now Playing</div>
+          <div class="channel-sub" id="now-sub">Now Playing</div>
         </div>
-        <button class="close-btn" onclick="closePlayer()">✕ Close</button>
+        <button class="close-btn" onclick="closePlayer()">✕ Tutup</button>
       </div>
     </div>
     
-    <!-- Live Tab -->
+    <!-- HOME TAB -->
     <div id="tab-live" class="tab-content">
       <div class="hero">
         <div class="hero-icon">⚽</div>
         <h1>FIFA World Cup 2026™</h1>
-        <p>Live Scores & Streaming Channels</p>
+        <p>Nonton bola live + 125+ channel Indonesia</p>
       </div>
       
       <div class="grid">
-        <!-- Live Matches -->
         <div class="card">
-          <div class="card-header"><span class="icon">🔴</span> <span class="gold">Live Matches</span></div>
+          <div class="section-title"><span class="section-icon">🔴</span> <span class="gold">Live Match</span></div>
           <div id="live-matches">
-            <div class="loading"><span class="spinner">⚽</span><br>Loading...</div>
+            <div class="loading"><span class="spinner">⚽</span>Loading...</div>
           </div>
         </div>
         
-        <!-- Live Channels -->
         <div class="card">
-          <div class="card-header"><span class="icon">📺</span> <span class="gold">Sports Channels</span></div>
-          <div class="channels" id="live-channels"></div>
+          <div class="section-title"><span class="section-icon">📺</span> <span class="gold">Sports Channel</span></div>
+          <div class="channels" id="home-channels"></div>
+        </div>
+      </div>
+      
+      <!-- Upcoming matches -->
+      <div class="card" style="margin-top: 1rem;">
+        <div class="section-title"><span class="section-icon">📅</span> <span class="gold">Upcoming Matches</span></div>
+        <div id="upcoming-matches">
+          <div class="loading"><span class="spinner">⚽</span>Loading...</div>
         </div>
       </div>
     </div>
     
-    <!-- Matches Tab -->
+    <!-- MATCHES TAB -->
     <div id="tab-matches" class="tab-content" style="display:none;">
       <div class="card" style="margin-bottom: 1rem;">
-        <div class="card-header"><span class="icon">📊</span> <span class="gold">Standings</span></div>
-        <div class="standing-table" id="standings">
-          <div class="loading"><span class="spinner">⚽</span><br>Loading...</div>
+        <div class="section-title"><span class="section-icon">📊</span> <span class="gold">Klasemen</span></div>
+        <div id="standings">
+          <div class="loading"><span class="spinner">⚽</span>Loading...</div>
         </div>
       </div>
       
       <div class="card">
-        <div class="card-header"><span class="icon">⚽</span> <span class="gold">All Matches</span></div>
+        <div class="section-title"><span class="section-icon">⚽</span> <span class="gold">Semua Match</span></div>
         <div id="all-matches">
-          <div class="loading"><span class="spinner">⚽</span><br>Loading...</div>
+          <div class="loading"><span class="spinner">⚽</span>Loading...</div>
         </div>
       </div>
     </div>
     
-    <!-- Channels Tab -->
+    <!-- CHANNELS TAB -->
     <div id="tab-channels" class="tab-content" style="display:none;">
       <div class="card">
-        <div class="card-header"><span class="icon">📡</span> <span class="gold">All Channels</span></div>
-        <div style="padding: 1rem;">
-          <input type="text" id="search-ch" placeholder="Search channels..." oninput="filterChannels()" style="width: 100%; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 10px; padding: 0.75rem 1rem; color: #fff; font-size: 0.9rem; outline: none;">
+        <div class="section-title"><span class="section-icon">📡</span> <span class="gold">Sports Channels</span></div>
+        <div class="search-wrap">
+          <input type="text" id="search-sports" class="search-input" placeholder="Cari channel..." oninput="filterSportsChannels()">
         </div>
-        <div class="channels" id="all-channels">
-          <div class="loading"><span class="spinner">⚽</span><br>Loading...</div>
+        <div class="channels" id="sports-channels">
+          <div class="loading"><span class="spinner">⚽</span>Loading...</div>
         </div>
+      </div>
+    </div>
+    
+    <!-- INDONESIA TAB -->
+    <div id="tab-indo" class="tab-content" style="display:none;">
+      <div class="card" style="margin-bottom: 1rem;">
+        <div class="section-title"><span class="section-icon">🔴</span> <span class="gold">Indonesian Sports - Nonton Bola!</span></div>
+        <div class="cats">
+          <button class="cat active" onclick="setIndoCat('all', this)">All</button>
+          <button class="cat" onclick="setIndoCat('lokal', this)">TV Lokal</button>
+          <button class="cat" onclick="setIndoCat('news', this)">News</button>
+          <button class="cat" onclick="setIndoCat('sport', this)">Sport</button>
+          <button class="cat" onclick="setIndoCat('film', this)">Film</button>
+          <button class="cat" onclick="setIndoCat('life', this)">Lifestyle</button>
+          <button class="cat" onclick="setIndoCat('inter', this)">International</button>
+        </div>
+        <div class="channels" id="indo-channels">
+          <div class="loading"><span class="spinner">⚽</span>Loading...</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="section-title"><span class="section-icon">🇮🇩</span> <span class="gold">Channel Lokal Populer</span></div>
+        <div class="channels" id="lokal-channels"></div>
       </div>
     </div>
     
   </main>
   
   <footer class="footer">
-    World Cup 2026™ • Data from FIFA • Auto-refresh: 60s
+    World Cup 2026™ • Data: FIFA.com • Channels: iptv-org & tvdigital<br>
+    Auto-refresh: 60s •🇮🇩 Support Indonesia
   </footer>
   
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
     // ===== CONFIG =====
     const FIFA_API = 'https://api.fifa.com/api/v3/calendar/17/285023/289273/standing';
-    const M3U_URL = 'https://iptv-org.github.io/iptv/index.m3u';
+    const M3U_SPORTS = 'https://iptv-org.github.io/iptv/index.m3u';
+    const M3U_INDO = 'https://raw.githubusercontent.com/mgi24/tvdigital/main/idwork.m3u';
     
     // Sports channels for World Cup
     const SPORTS_KEYWORDS = [
-      'BBC', 'ITV', 'ESPN', 'Fox', 'Sky Sports', 'beIN', 'TNT', 'CBS', 'NBC',
-      'Telemundo', 'Canal+', 'TF1', 'ZDF', 'ARD', 'Rai', 'Mediaset', 'TVE',
-      'RTP', 'SIC', 'DR', 'NRK', 'SVT', 'YLE', 'CTV', 'TSN', 'RDS', 'Astro',
-      'Star Sports', 'Ten', 'Sony', 'Jio', 'SuperSport', 'DSport', 'Arena'
+      'BBC', 'ITV', 'ESPN', 'Fox Sports', 'Sky Sports', 'beIN', 'TNT Sports', 'CBS Sports',
+      'NBC Sports', 'Telemundo', 'Canal+', 'TF1', 'ZDF', 'ARD', 'Rai', 'Mediaset', 'TVE',
+      'RTP', 'SIC', 'DR', 'NRK', 'SVT', 'YLE', 'CTV', 'TSN', 'RDS', 'Astro', 'Arena',
+      'Star Sports', 'Ten Sports', 'Sony', 'Jio Sports', 'SuperSport', 'DSport', 'DAZN',
+      'Premier', 'BT Sport', 'Eurosport', 'NBA', 'MLB', 'NFL', 'NHL', 'Golf',
+      'MNC', 'RCTI', 'SCTV', 'Indosiar', 'ANTV', 'NET', 'TRANS', 'tvOne', 'Metro', 'Kompas'
+    ];
+    
+    // Indonesian sports channels
+    const INDO_SPORTS_KEYWORDS = [
+      'beIN', 'Champions', 'Sport', 'MNC', 'RCTI', 'SCTV', 'Indosiar', 'ANTV', 'NET.', 
+      'TRANS', 'tvOne', 'Metro', 'Kompas', 'TVRI', 'GTV', 'iNews', 'Moji', 'Vidio'
     ];
     
     // Country flags
@@ -289,21 +374,25 @@
       'IRN': '🇮🇷', 'QAT': '🇶🇦', 'KSA': '🇸🇦', 'POL': '🇵🇱', 'SUI': '🇨🇭', 'SWE': '🇸🇪',
       'DEN': '🇩🇰', 'SRB': '🇷🇸', 'WAL': '🏴󠁧󠁢󠁷󠁬󠁳󠁿', 'UKR': '🇺🇦', 'COL': '🇨🇴', 'PER': '🇵🇪',
       'CHI': '🇨🇱', 'ECU': '🇪🇨', 'PAR': '🇵🇾', 'VEN': '🇻🇪', 'PAN': '🇵🇦', 'JAM': '🇯🇲',
-      'ALG': '🇩🇿', 'TUN': '🇹🇳', 'AUS2': '🇦🇺', 'NZL': '🇳🇿', 'RSA': '🇿🇦', 'NCA': '🇳🇮'
+      'ALG': '🇩🇿', 'TUN': '🇹🇳', 'RSA': '🇿🇦', 'NZL': '🇳🇿', 'NCA': '🇳🇮'
     };
     
     // ===== STATE =====
     let allChannels = [];
-    let filteredChannels = [];
+    let sportsChannels = [];
+    let indoChannels = [];
+    let filteredSports = [];
+    let filteredIndo = [];
     let standings = [];
     let allMatches = [];
+    let currentIndoCat = 'all';
     
     // ===== TAB SWITCH =====
-    function showTab(tab) {
+    function showTab(tab, e) {
       document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
       document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
       document.getElementById('tab-' + tab).style.display = 'block';
-      event.target.classList.add('active');
+      if (e && e.target) e.target.classList.add('active');
     }
     
     // ===== PARSE M3U =====
@@ -315,11 +404,12 @@
       for (let line of lines) {
         line = line.trim();
         if (line.startsWith('#EXTINF:')) {
-          ch = { name: '', logo: '', category: 'Other', url: '' };
+          ch = { name: '', logo: '', category: 'Other', country: [], url: '' };
           const parts = line.slice(8).split(' ');
           for (let p of parts) {
             if (p.startsWith('tvg-logo="')) ch.logo = p.match(/"([^"]*)"/)?.[1] || '';
             else if (p.startsWith('group-title="')) ch.category = p.match(/"([^"]*)"/)?.[1] || 'Other';
+            else if (p.startsWith('tvg-country="')) ch.country = p.match(/"([^"]*)"/)?.[1] || '';
           }
           const m = line.match(/,(.+?)(?:\s*\(|\s*\[|$)/);
           if (m) ch.name = m[1].trim();
@@ -333,9 +423,9 @@
     }
     
     // ===== LOAD CHANNELS =====
-    async function loadChannels() {
+    async function loadSportsChannels() {
       try {
-        const res = await fetch(M3U_URL);
+        const res = await fetch(M3U_SPORTS);
         const text = await res.text();
         let channels = parseM3U(text);
         
@@ -344,7 +434,7 @@
           SPORTS_KEYWORDS.some(k => ch.name.toLowerCase().includes(k.toLowerCase()))
         );
         
-        // Dedupe by name
+        // Dedupe
         const seen = new Set();
         channels = channels.filter(ch => {
           const key = ch.name.toLowerCase();
@@ -353,20 +443,48 @@
           return true;
         });
         
-        allChannels = channels;
-        filteredChannels = channels;
-        renderChannels();
+        sportsChannels = channels;
+        filteredSports = channels;
+        renderSportsChannels();
         
       } catch (e) {
-        console.error('Failed to load channels:', e);
+        console.error('Failed sports:', e);
       }
     }
     
-    // ===== RENDER CHANNELS =====
-    function renderChannels() {
-      const liveHtml = filteredChannels.slice(0, 20).map(ch => `
-        <div class="ch-item" onclick="playChannel('${ch.name}', '${ch.url}')">
-          <div class="ch-icon">${ch.logo ? `<img src="${ch.logo}" alt="">` : '📺'}</div>
+    async function loadIndoChannels() {
+      try {
+        const res = await fetch(M3U_INDO);
+        const text = await res.text();
+        let channels = parseM3U(text);
+        
+        // Dedupe
+        const seen = new Set();
+        channels = channels.filter(ch => {
+          const key = ch.name.toLowerCase();
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+        
+        indoChannels = channels;
+        filteredIndo = channels;
+        renderIndoChannels();
+        
+        // Also render popular lokal channels
+        renderLokalChannels();
+        
+      } catch (e) {
+        console.error('Failed indo:', e);
+      }
+    }
+    
+    // ===== RENDER =====
+    function renderSportsChannels(list) {
+      const data = list || filteredSports;
+      const html = data.slice(0, 40).map(ch => `
+        <div class="ch-item" onclick="playChannel('${esc(ch.name)}', '${ch.url}', '${esc(ch.category)}')">
+          <div class="ch-icon">${ch.logo ? `<img src="${ch.logo}" alt="" onerror="this.parentElement.textContent='📺'">` : '⚽'}</div>
           <div>
             <div class="ch-name">${ch.name}</div>
             <div class="ch-cat">${ch.category}</div>
@@ -375,20 +493,70 @@
         </div>
       `).join('');
       
-      document.getElementById('live-channels').innerHTML = liveHtml || '<div class="loading">No channels found</div>';
-      document.getElementById('all-channels').innerHTML = liveHtml;
+      document.getElementById('sports-channels').innerHTML = html || '<div class="loading">No channels</div>';
+      document.getElementById('home-channels').innerHTML = html.slice(0, 16) || '<div class="loading">No channels</div>';
     }
     
-    function filterChannels() {
-      const q = document.getElementById('search-ch').value.toLowerCase();
-      filteredChannels = allChannels.filter(ch => ch.name.toLowerCase().includes(q) || ch.category.toLowerCase().includes(q));
-      renderChannels();
+    function filterSportsChannels() {
+      const q = document.getElementById('search-sports').value.toLowerCase();
+      filteredSports = sportsChannels.filter(ch => ch.name.toLowerCase().includes(q) || ch.category.toLowerCase().includes(q));
+      renderSportsChannels(filteredSports);
+    }
+    
+    function setIndoCat(cat, btn) {
+      currentIndoCat = cat;
+      document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      
+      if (cat === 'all') {
+        filteredIndo = indoChannels;
+      } else {
+        filteredIndo = indoChannels.filter(ch => ch.category.toLowerCase().includes(cat));
+      }
+      renderIndoChannels();
+    }
+    
+    function renderIndoChannels() {
+      const html = filteredIndo.map(ch => `
+        <div class="ch-item" onclick="playChannel('${esc(ch.name)}', '${ch.url}', '${esc(ch.category)}')">
+          <div class="ch-icon">${ch.logo ? `<img src="${ch.logo}" alt="" onerror="this.parentElement.textContent='📺'">` : '🇮🇩'}</div>
+          <div>
+            <div class="ch-name">${ch.name}</div>
+            <div class="ch-cat">${ch.category}</div>
+          </div>
+          <div class="ch-play">▶</div>
+        </div>
+      `).join('');
+      document.getElementById('indo-channels').innerHTML = html || '<div class="loading">No channels in this category</div>';
+    }
+    
+    function renderLokalChannels() {
+      const lokal = indoChannels.filter(ch => 
+        ch.category.toLowerCase().includes('lokal') || 
+        ['ANTV', 'INDOSIAR', 'SCTV', 'NET', 'RCTI', 'MNCTV', 'TRANS', 'TVONE', 'METRO', 'KOMPAS', 'TVRI'].some(k => ch.name.toUpperCase().includes(k))
+      );
+      const html = lokal.slice(0, 20).map(ch => `
+        <div class="ch-item" onclick="playChannel('${esc(ch.name)}', '${ch.url}', '${esc(ch.category)}')">
+          <div class="ch-icon">${ch.logo ? `<img src="${ch.logo}" alt="" onerror="this.parentElement.textContent='📺'">` : '🇮🇩'}</div>
+          <div>
+            <div class="ch-name">${ch.name}</div>
+            <div class="ch-cat">${ch.category}</div>
+          </div>
+          <div class="ch-play">▶</div>
+        </div>
+      `).join('');
+      document.getElementById('lokal-channels').innerHTML = html || '<div class="loading">No lokal channels</div>';
     }
     
     // ===== PLAYER =====
-    function playChannel(name, url) {
+    function playChannel(name, url, cat) {
+      if (!url) {
+        alert('Stream tidak tersedia untuk channel ini. Coba channel lain.');
+        return;
+      }
       const video = document.getElementById('video-player');
       document.getElementById('now-playing').textContent = name;
+      document.getElementById('now-sub').textContent = cat || 'Sports';
       document.getElementById('player-wrap').classList.add('active');
       
       if (url.includes('.m3u8') && Hls.isSupported()) {
@@ -397,6 +565,11 @@
         video.hls.loadSource(url);
         video.hls.attachMedia(video);
         video.hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => {}));
+        video.hls.on(Hls.Events.ERROR, (_, data) => {
+          if (data.fatal) {
+            alert('Stream error! Coba channel lain.');
+          }
+        });
       } else {
         video.src = url;
         video.play().catch(() => {});
@@ -413,6 +586,10 @@
       document.getElementById('player-wrap').classList.remove('active');
     }
     
+    function esc(str) {
+      return (str || '').replace(/'/g, "\\'").replace(/"/g, '\\"');
+    }
+    
     // ===== FIFA DATA =====
     async function loadFIFA() {
       try {
@@ -423,7 +600,7 @@
           standings = data.Results;
           allMatches = standings.flatMap(s => (s.MatchResults || []).map(m => ({
             ...m,
-            Team: s.Team
+            _team: s.Team
           })));
           
           renderStandings();
@@ -431,7 +608,7 @@
         }
         
       } catch (e) {
-        console.error('Failed to load FIFA:', e);
+        console.error('FIFA error:', e);
       }
     }
     
@@ -441,7 +618,7 @@
     
     function getFlag(team) {
       if (!team) return '🏳️';
-      return FLAGS[team.IdAssociation] || FLAGS[team.IdAssociation.replace('ENG', 'GBR')] || '🏳️';
+      return FLAGS[team.IdAssociation] || '🏳️';
     }
     
     function getTeamName(team) {
@@ -450,18 +627,18 @@
     }
     
     function formatTime(iso) {
+      if (!iso) return '';
       const d = new Date(iso);
       return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
     }
     
     function formatDate(iso) {
+      if (!iso) return '';
       const d = new Date(iso);
       return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
     }
     
-    // ===== RENDER STANDINGS =====
     function renderStandings() {
-      // Group by group name
       const groups = {};
       standings.forEach(s => {
         const gname = s.Group?.[0]?.Description || 'Unknown';
@@ -473,8 +650,8 @@
       Object.keys(groups).sort().forEach(gname => {
         const teams = groups[gname].sort((a, b) => a.Position - b.Position);
         html += `
-          <div style="padding: 1rem; border-bottom: 1px solid #2a2a3e;">
-            <div style="font-weight: 700; color: #ffd700; margin-bottom: 0.5rem;">${gname}</div>
+          <div style="padding: 0.75rem; border-bottom: 1px solid #2a2a3e;">
+            <div style="font-weight: 700; color: #ffd700; margin-bottom: 0.4rem; font-size: 0.75rem;">${gname}</div>
             <table class="standing-table">
               <thead>
                 <tr>
@@ -491,7 +668,7 @@
               <tbody>
                 ${teams.map((s, i) => `
                   <tr>
-                    <td class="pos">${i + 1}</td>
+                    <td>${i + 1}</td>
                     <td>${getFlag(s.Team)} ${getTeamName(s.Team)}</td>
                     <td>${s.Played}</td>
                     <td style="color:#4ade80">${s.Won}</td>
@@ -507,69 +684,89 @@
         `;
       });
       
-      document.getElementById('standings').innerHTML = html;
+      document.getElementById('standings').innerHTML = html || '<div class="loading">No standings</div>';
     }
     
-    // ===== RENDER MATCHES =====
     function renderMatches() {
       const now = new Date();
       const matches = allMatches.sort((a, b) => new Date(a.StartTime) - new Date(b.StartTime));
       
-      const html = matches.map(m => {
-        const home = getTeam(m.HomeTeamId);
-        const away = getTeam(m.AwayTeamId);
-        const matchTime = new Date(m.StartTime);
-        const isLive = m.HomeTeamScore !== null && matchTime <= now;
-        const isUpcoming = !isLive && matchTime > now;
-        
-        let badge = '';
-        let scoreClass = '';
-        if (isLive) {
-          badge = '<span class="live-badge">● LIVE</span>';
-          scoreClass = 'score-live';
-        } else if (isUpcoming) {
-          badge = `<span class="upcoming-badge">${formatDate(m.StartTime)} ${formatTime(m.StartTime)}</span>`;
-        } else {
-          badge = '<span class="finished-badge">Finished</span>';
-        }
-        
-        return `
-          <div class="match" onclick="playChannel('Sports Channel', '${SPORTS_KEYWORDS[Math.floor(Math.random() * 5)]}')">
-            <div class="match-header">
-              ${badge}
+      const liveMatches = matches.filter(m => m.HomeTeamScore !== null && new Date(m.StartTime) <= now);
+      const upcomingMatches = matches.filter(m => m.HomeTeamScore === null && new Date(m.StartTime) > now);
+      
+      // Live matches
+      const liveHtml = liveMatches.length > 0 ? liveMatches.map(m => renderMatchCard(m, true)).join('') : 
+        `<div style="padding: 1.5rem; text-align: center; color: #666;">Tidak ada match live saat ini<br><span style="font-size: 0.7rem;">Cek jadwal di tab Matches</span></div>`;
+      document.getElementById('live-matches').innerHTML = liveHtml;
+      
+      // Upcoming
+      const upcomingHtml = upcomingMatches.slice(0, 8).map(m => renderMatchCard(m, false)).join('');
+      document.getElementById('upcoming-matches').innerHTML = upcomingHtml || '<div class="loading">No upcoming matches</div>';
+      
+      // All matches
+      const allHtml = matches.map(m => renderMatchCard(m, false)).join('');
+      document.getElementById('all-matches').innerHTML = allHtml || '<div class="loading">No matches</div>';
+    }
+    
+    function renderMatchCard(m, isLive) {
+      const home = getTeam(m.HomeTeamId);
+      const away = getTeam(m.AwayTeamId);
+      const matchTime = new Date(m.StartTime);
+      const now = new Date();
+      
+      let badge = '';
+      let scoreClass = '';
+      if (isLive) {
+        badge = '<span class="live-badge">● LIVE</span>';
+        scoreClass = 'score-live';
+      } else if (m.HomeTeamScore === null) {
+        badge = `<span class="upcoming-badge">${formatDate(m.StartTime)} ${formatTime(m.StartTime)}</span>`;
+      } else {
+        badge = '<span class="finished-badge">Selesai</span>';
+      }
+      
+      // Find matching Indonesian sports channel
+      const matchingCh = indoChannels.find(ch => 
+        INDO_SPORTS_KEYWORDS.some(k => ch.name.toUpperCase().includes(k)) && ch.url
+      ) || sportsChannels.find(ch => 
+        ['beIN', 'ESPN', 'Fox', 'Sky', 'TNT', 'CBS', 'NBC'].some(k => ch.name.includes(k)) && ch.url
+      );
+      
+      const watchUrl = matchingCh ? matchingCh.url : '';
+      const watchName = matchingCh ? matchingCh.name : 'Sports Channel';
+      
+      return `
+        <div class="match">
+          <div class="match-header">
+            ${badge}
+            <span class="match-time">${formatTime(m.StartTime)}</span>
+          </div>
+          <div class="match-teams">
+            <div class="team team-left">
+              <span class="flag">${getFlag(home)}</span>
+              <span class="team-name">${getTeamName(home)}</span>
             </div>
-            <div class="match-teams">
-              <div class="team team-left">
-                <span class="flag">${getFlag(home)}</span>
-                <span class="team-name">${getTeamName(home)}</span>
-              </div>
-              
-              <div class="score-box ${scoreClass}">
-                ${m.HomeTeamScore !== null ? `${m.HomeTeamScore} - ${m.AwayTeamScore}` : '<span class="vs">vs</span>'}
-              </div>
-              
-              <div class="team team-right">
-                <span class="team-name">${getTeamName(away)}</span>
-                <span class="flag">${getFlag(away)}</span>
-              </div>
+            <div class="score-box ${scoreClass}">
+              ${m.HomeTeamScore !== null ? `${m.HomeTeamScore} - ${m.AwayTeamScore}` : '<span class="vs">vs</span>'}
+            </div>
+            <div class="team team-right">
+              <span class="team-name">${getTeamName(away)}</span>
+              <span class="flag">${getFlag(away)}</span>
             </div>
           </div>
-        `;
-      }).join('');
-      
-      document.getElementById('all-matches').innerHTML = html || '<div class="loading">No matches found</div>';
-      document.getElementById('live-matches').innerHTML = html.slice(0, 6) || '<div class="loading">No live matches</div>';
+          ${isLive || m.HomeTeamScore !== null ? `<button class="watch-btn" onclick="event.stopPropagation(); playChannel('${esc(watchName)}', '${watchUrl}', 'World Cup')">⚽ Nonton Sekarang</button>` : ''}
+        </div>
+      `;
     }
     
     // ===== INIT =====
     document.addEventListener('DOMContentLoaded', () => {
       loadFIFA();
-      loadChannels();
+      loadSportsChannels();
+      loadIndoChannels();
       
-      // Auto refresh every 60s
-      setInterval(() => {
-        loadFIFA();
-      }, 60000);
+      // Auto refresh
+      setInterval(loadFIFA, 60000);
     });
   </script>
 </body>
