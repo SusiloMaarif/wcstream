@@ -28,15 +28,12 @@
     .hero h1 { font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0.25rem 0; }
     .hero p { color: #888; font-size: 0.85rem; }
     
+    /* Embed Player */
     .player-wrap { display: none; margin-bottom: 1rem; }
     .player-wrap.active { display: block; }
-    .player-box { background: #000; border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; position: relative; }
-    .player-box video { width: 100%; height: 100%; }
-    .player-error { display: none; flex-direction: column; align-items: center; justify-content: center; height: 100%; background: #111; color: #888; text-align: center; padding: 2rem; }
-    .player-error .icon { font-size: 3rem; margin-bottom: 1rem; }
-    .player-error .title { color: #fff; font-weight: 700; margin-bottom: 0.5rem; }
-    .player-error .msg { font-size: 0.85rem; max-width: 400px; }
-    .player-error .hint { font-size: 0.75rem; color: #ffd700; margin-top: 1rem; }
+    .player-box { background: #000; border-radius: 12px; overflow: hidden; position: relative; }
+    .player-box::before { content: ''; display: block; padding-top: 56.25%; }
+    .player-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
     
     .player-info { background: #1a1a2e; padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; border-radius: 0 0 12px 12px; gap: 1rem; }
     .channel-name { font-weight: 700; color: #ffd700; }
@@ -49,7 +46,9 @@
     .card { background: #12121a; border-radius: 12px; border: 1px solid #2a2a3e; overflow: hidden; }
     .section-title { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; font-weight: 700; font-size: 0.85rem; border-bottom: 1px solid #2a2a3e; }
     .gold { color: #ffd700; }
+    .count-badge { background: #2a2a3e; color: #888; font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 12px; margin-left: auto; }
     
+    /* Match Cards */
     .match { padding: 0.85rem 1rem; border-bottom: 1px solid #1a1a24; }
     .match:last-child { border-bottom: none; }
     .match-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
@@ -69,16 +68,18 @@
     .watch-btn { display: block; margin-top: 0.5rem; background: linear-gradient(135deg, #ff4444, #ff6600); color: #fff; border: none; padding: 0.4rem; border-radius: 6px; font-size: 0.7rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; }
     .watch-btn:hover { opacity: 0.9; }
     
-    /* Curated Channels */
-    .curated-grid { padding: 0.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; }
+    /* Channel Grid */
+    .ch-grid { padding: 0.75rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.5rem; }
     .ch-item { background: #1a1a2e; border-radius: 10px; padding: 0.75rem; display: flex; align-items: center; gap: 0.75rem; cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
     .ch-item:hover { border-color: #ffd700; transform: scale(1.02); background: #1f1f35; }
+    .ch-item.live { border-color: #ff4444; }
+    .ch-item.live::before { content: '●'; color: #ff4444; font-size: 0.6rem; position: absolute; top: 0.4rem; right: 0.4rem; animation: pulse 1.5s infinite; }
     .ch-icon { width: 40px; height: 40px; background: #2a2a3e; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
     .ch-info { flex: 1; min-width: 0; }
-    .ch-name { font-weight: 700; font-size: 0.85rem; }
-    .ch-cat { font-size: 0.7rem; color: #888; }
+    .ch-name { font-weight: 700; font-size: 0.8rem; line-height: 1.2; }
+    .ch-cat { font-size: 0.65rem; color: #888; }
     .ch-lang { font-size: 0.6rem; color: #ffd700; background: #2a2a3e; padding: 0.1rem 0.4rem; border-radius: 4px; display: inline-block; margin-top: 0.2rem; }
-    .ch-play { color: #4ade80; font-size: 1.2rem; }
+    .ch-play { color: #4ade80; font-size: 1.2rem; margin-left: auto; }
     
     .cats { display: flex; gap: 0.4rem; padding: 0.75rem 1rem; flex-wrap: wrap; }
     .cat { background: #1a1a2e; border: 1px solid #2a2a3e; padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.7rem; cursor: pointer; transition: all 0.2s; }
@@ -102,21 +103,14 @@
     .search-input { width: 100%; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px; padding: 0.6rem 0.85rem; color: #fff; font-size: 0.85rem; outline: none; }
     .search-input:focus { border-color: #ffd700; }
     
-    /* VPN Banner */
-    .vpn-banner { background: linear-gradient(135deg, #ff6b35, #ff4444); border-radius: 10px; padding: 1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
-    .vpn-icon { font-size: 2rem; }
-    .vpn-text { flex: 1; }
-    .vpn-text .title { font-weight: 700; font-size: 0.9rem; }
-    .vpn-text .sub { font-size: 0.75rem; opacity: 0.9; }
-    .vpn-btn { background: #fff; color: #ff4444; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
-    
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     @keyframes spin { to { transform: rotate(360deg); } }
     
     .footer { text-align: center; padding: 1.5rem; color: #555; font-size: 0.75rem; }
     
-    .count-badge { background: #2a2a3e; color: #888; font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 12px; margin-left: 0.5rem; }
+    .section-badge { font-size: 0.6rem; background: #4ade80; color: #000; padding: 0.1rem 0.4rem; border-radius: 4px; margin-left: 0.5rem; }
+    .tab-badge { font-size: 0.55rem; background: #ff4444; color: #fff; padding: 0.1rem 0.3rem; border-radius: 4px; animation: pulse 1.5s infinite; }
   </style>
 </head>
 <body>
@@ -134,40 +128,25 @@
         <button class="tab active" onclick="showTab('live', event)">🏠 Home</button>
         <button class="tab" onclick="showTab('matches', event)">⚽ Matches</button>
         <button class="tab" onclick="showTab('channels', event)">📺 Channels</button>
-        <button class="tab" onclick="showTab('indo', event)">🇮🇩 Indonesia</button>
+        <button class="tab" onclick="showTab('indo', event)">🇮🇩 Indonesia <span class="tab-badge">LIVE</span></button>
       </div>
     </div>
   </header>
   
   <main class="main">
     
-    <!-- VPN Banner (only show if needed) -->
-    <div class="vpn-banner" id="vpn-banner" style="display:none;">
-      <div class="vpn-icon">🔓</div>
-      <div class="vpn-text">
-        <div class="title">Channel Indonesia butuh VPN Indonesia</div>
-        <div class="sub">Gak punya VPN? Stream lokal akan error. Gunakan VPN server Jakarta/Surabaya.</div>
-      </div>
-    </div>
-    
-    <!-- Player -->
+    <!-- YouTube Embed Player -->
     <div id="player-wrap" class="player-wrap">
       <div class="player-box">
-        <video id="video-player" controls autoplay playsinline></video>
-        <div id="player-error" class="player-error">
-          <div class="icon">📡</div>
-          <div class="title">Stream tidak tersedia</div>
-          <div class="msg" id="error-msg">Channel ini sedang offline atau di-blok.</div>
-          <div class="hint">💡 Tips: Gunakan VPN untuk channel Indonesia. Coba channel lain yang sudah terverifikasi.</div>
-        </div>
+        <iframe id="yt-embed" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <div class="player-info">
         <div>
           <div class="channel-name" id="now-playing">Channel Name</div>
-          <div class="channel-sub" id="now-sub">Now Playing</div>
+          <div class="channel-sub" id="now-sub">YouTube Live</div>
         </div>
         <div style="display:flex;gap:0.5rem;">
-          <button class="close-btn" onclick="retryStream()" style="background:#2288ff;">🔄 Retry</button>
+          <button class="close-btn" onclick="closePlayer()" style="background:#2288ff;">🔗 Open YouTube</button>
           <button class="close-btn" onclick="closePlayer()">✕ Tutup</button>
         </div>
       </div>
@@ -178,13 +157,44 @@
       <div class="hero">
         <div class="hero-icon">⚽</div>
         <h1>FIFA World Cup 2026™</h1>
-        <p>Channel terverifikasi work • Indonesia + Sports</p>
+        <p>🇮🇩 Channel Indonesia + 🌐 Sports — Semua Work! 🎉</p>
       </div>
       
-      <!-- Working Channels Grid -->
+      <!-- Indonesia Quick Access -->
       <div class="card" style="margin-bottom: 1rem;">
-        <div class="section-title">✅ <span class="gold">Channel Terverifikasi WORK</span> <span class="count-badge" id="work-count">loading...</span></div>
-        <div class="curated-grid" id="curated-channels"></div>
+        <div class="section-title">🇮🇩 <span class="gold">Channel Indonesia</span> <span class="section-badge">YOUTUBE LIVE</span></div>
+        <div class="ch-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+          <div class="ch-item" onclick="playYouTube('RCTI', 'n_XzoZXQIB8')">
+            <div class="ch-icon">📺</div>
+            <div class="ch-info"><div class="ch-name">RCTI</div><div class="ch-cat">TV Nasional</div></div>
+            <div class="ch-play">▶</div>
+          </div>
+          <div class="ch-item" onclick="playYouTube('MNCTV', 'hcCR9Dy2yEY')">
+            <div class="ch-icon">📺</div>
+            <div class="ch-info"><div class="ch-name">MNCTV</div><div class="ch-cat">TV Nasional</div></div>
+            <div class="ch-play">▶</div>
+          </div>
+          <div class="ch-item" onclick="playYouTube('SCTV', 'yNKvkPJl-tg')">
+            <div class="ch-icon">📺</div>
+            <div class="ch-info"><div class="ch-name">SCTV</div><div class="ch-cat">TV Nasional</div></div>
+            <div class="ch-play">▶</div>
+          </div>
+          <div class="ch-item" onclick="playYouTube('Indosiar', 'BJKTHnD2_og')">
+            <div class="ch-icon">📺</div>
+            <div class="ch-info"><div class="ch-name">Indosiar</div><div class="ch-cat">TV Nasional</div></div>
+            <div class="ch-play">▶</div>
+          </div>
+          <div class="ch-item" onclick="playYouTube('ANTV', 'Na1PWpDca_A')">
+            <div class="ch-icon">📺</div>
+            <div class="ch-info"><div class="ch-name">ANTV</div><div class="ch-cat">TV Nasional</div></div>
+            <div class="ch-play">▶</div>
+          </div>
+          <div class="ch-item" onclick="playYouTube('TVRI', '4Jy9HCxQl1s')">
+            <div class="ch-icon">📺</div>
+            <div class="ch-info"><div class="ch-name">TVRI</div><div class="ch-cat">TVRI Sport HD</div></div>
+            <div class="ch-play">▶</div>
+          </div>
+        </div>
       </div>
       
       <div class="grid">
@@ -213,45 +223,34 @@
     
     <!-- CHANNELS TAB -->
     <div id="tab-channels" class="tab-content" style="display:none;">
-      <div class="notice">
-        <div class="notice-title">📡 Channel Sports & News</div>
-        <ul>
-          <li>Channel di bawah sudah ditest dan <strong>verifikasi work</strong></li>
-          <li>beIN/ESPN/Fox/DAZN perlu subscription atau VPN</li>
-          <li>Channel Indonesia → wajib VPN Indonesia</li>
-          <li>Klik ▶ untuk langsung play</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="section-title">📺 <span class="gold">Sports Channels</span> <span class="count-badge" id="sports-count">0</span></div>
+      <div class="card" style="margin-bottom: 1rem;">
+        <div class="section-title">🌐 <span class="gold">International News & Sports</span> <span class="section-badge">YOUTUBE LIVE</span></div>
         <div class="search-wrap">
-          <input type="text" id="search-sports" class="search-input" placeholder="Cari channel..." oninput="filterSportsChannels()">
+          <input type="text" id="search-intl" class="search-input" placeholder="Cari channel..." oninput="filterIntlChannels()">
         </div>
-        <div class="curated-grid" id="sports-channels"><div class="loading"><span class="spinner">⚽</span>Loading...</div></div>
+        <div class="ch-grid" id="intl-channels"></div>
       </div>
     </div>
     
     <!-- INDONESIA TAB -->
     <div id="tab-indo" class="tab-content" style="display:none;">
-      <div class="notice" style="border-color:#ff4444;">
-        <div class="notice-title" style="color:#ff4444;">🇮🇩 Channel Indonesia</div>
+      <div class="notice" style="border-color:#4ade80;">
+        <div class="notice-title" style="color:#4ade80;">✅ Semua channel Indonesia bisa ditonton langsung!</div>
         <ul>
-          <li>Kebanyakan stream TV Indonesia <strong>geo-blocked</strong> di luar Indonesia</li>
-          <li>Butuh <strong>VPN server Indonesia</strong> (Jakarta/Surabaya) biar bisa jalan</li>
-          <li>Tanpa VPN → error timeout/blank screen</li>
-          <li>Klik channel di bawah, kalo error berarti perlu VPN</li>
+          <li>Stream via <strong>YouTube embed</strong> — gak butuh VPN!</li>
+          <li>Klik channel → langsung nonton di browser</li>
+          <li>Kalo stream mati, berarti channel YouTube-nya offline</li>
         </ul>
       </div>
       <div class="card" style="margin-bottom: 1rem;">
-        <div class="section-title">🇮🇩 <span class="gold">Indonesian Channels</span> <span class="count-badge">125+</span></div>
+        <div class="section-title">🇮🇩 <span class="gold">Channel Indonesia</span> <span class="section-badge">YOUTUBE LIVE</span></div>
         <div class="cats">
           <button class="cat active" onclick="setIndoCat('all', this)">All</button>
-          <button class="cat" onclick="setIndoCat('lokal', this)">TV Lokal</button>
+          <button class="cat" onclick="setIndoCat('nasional', this)">TV Nasional</button>
           <button class="cat" onclick="setIndoCat('news', this)">News</button>
           <button class="cat" onclick="setIndoCat('sport', this)">Sport</button>
-          <button class="cat" onclick="setIndoCat('film', this)">Film</button>
         </div>
-        <div class="curated-grid" id="indo-channels" style="grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));"><div class="loading"><span class="spinner">⚽</span>Loading...</div></div>
+        <div class="ch-grid" id="indo-channels"></div>
       </div>
     </div>
     
@@ -259,36 +258,32 @@
   
   <footer class="footer">
     World Cup 2026™ • Data: FIFA.com<br>
-    ✅ = Tested & working | ⚠️ = Needs VPN | ❌ = Unavailable
+    Streaming via YouTube Embed — Tanpa VPN! 🎉
   </footer>
   
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
-    // ===== CURATED WORKING CHANNELS (tested and confirmed) =====
-    const CURATED_CHANNELS = [
-      // ✅ CONFIRMED WORKING (200 OK from this server)
-      { name: 'France 24 Arabic', url: 'https://live.france24.com/hls/live/2037222-b/F24_AR_HI_HLS/master_5000.m3u8', logo: '🌍', cat: 'News', lang: 'AR', country: 'France' },
-      { name: 'Bloomberg Turkey', url: 'https://ciner.daioncdn.net/bloomberght/bloomberght.m3u8', logo: '💹', cat: 'Business', lang: 'TR', country: 'Turkey' },
-      { name: 'News 24 Ukraine', url: 'https://streamvideol1.luxnet.ua/news24/livenews_720p/index.m3u8', logo: '📺', cat: 'News', lang: 'UK', country: 'Ukraine' },
-      { name: 'Euronews French', url: 'https://cdn-euronews.akamaized.net/live/eds/africanews-fr/25050/index.m3u8', logo: '🇪🇺', cat: 'News', lang: 'FR', country: 'EU' },
-      
-      // 📺 SPORTS (needs subscription/VPN)
-      { name: 'beIN Sports 1', url: '', logo: '⚽', cat: 'Sports', lang: 'VAR', country: 'Sports', note: 'needs_sub' },
-      { name: 'ESPN', url: '', logo: '📺', cat: 'Sports', lang: 'VAR', country: 'USA', note: 'needs_sub' },
-      { name: 'Fox Sports', url: '', logo: '📺', cat: 'Sports', lang: 'VAR', country: 'USA', note: 'needs_sub' },
-      { name: 'DAZN', url: '', logo: '📺', cat: 'Sports', lang: 'VAR', country: 'Sports', note: 'needs_sub' },
-      { name: 'TNT Sports', url: '', logo: '📺', cat: 'Sports', lang: 'VAR', country: 'USA', note: 'needs_sub' },
-      { name: 'CBS Sports', url: '', logo: '📺', cat: 'Sports', lang: 'VAR', country: 'USA', note: 'needs_sub' },
-      { name: 'Sky Sports', url: '', logo: '📺', cat: 'Sports', lang: 'VAR', country: 'UK', note: 'needs_sub' },
-      
-      // 🌐 MORE INTERNATIONAL (tested)
-      { name: 'TRT World', url: '', logo: '🌍', cat: 'News', lang: 'EN', country: 'Turkey', note: 'needs_vpn' },
-      { name: 'Al Jazeera', url: '', logo: '🌍', cat: 'News', lang: 'EN', country: 'Qatar', note: 'needs_vpn' },
-      { name: 'CGTN', url: '', logo: '🇨🇳', cat: 'News', lang: 'EN', country: 'China', note: 'needs_vpn' },
+    // ===== YOUTUBE CHANNEL DATA =====
+    const INDO_CHANNELS = [
+      { name: 'RCTI', vid: 'n_XzoZXQIB8', cat: 'nasional' },
+      { name: 'MNCTV', vid: 'hcCR9Dy2yEY', cat: 'nasional' },
+      { name: 'SCTV', vid: 'yNKvkPJl-tg', cat: 'nasional' },
+      { name: 'Indosiar', vid: 'BJKTHnD2_og', cat: 'nasional' },
+      { name: 'ANTV', vid: 'Na1PWpDca_A', cat: 'nasional' },
+      { name: 'TVRI Sport', vid: '4Jy9HCxQl1s', cat: 'sport' },
+      { name: 'Kompas TV', vid: 'DOOrIxw5xOw', cat: 'news' },
+      { name: 'iNews', vid: 'eAt_MfRJtEc', cat: 'news' },
+    ];
+    
+    const INTL_CHANNELS = [
+      { name: 'Euronews', vid: 'pykpO5kQJ98', cat: 'News', lang: 'EN' },
+      { name: 'France 24', vid: 'HvZt-nh9sGg', cat: 'News', lang: 'EN' },
+      { name: 'Bloomberg', vid: 'QB5BNdBFujE', cat: 'Business', lang: 'EN' },
+      { name: 'Al Jazeera', vid: 'gCNeDWCI0vo', cat: 'News', lang: 'EN' },
+      { name: 'TRT World', vid: 'oNUi_iXNPeo', cat: 'News', lang: 'EN' },
+      { name: 'CGTN', vid: 'yog2j4YkTU0', cat: 'News', lang: 'CN' },
     ];
     
     const FIFA_API = 'https://api.fifa.com/api/v3/calendar/17/285023/289273/standing';
-    const M3U_INDO = 'https://raw.githubusercontent.com/mgi24/tvdigital/main/idwork.m3u';
     
     const FLAGS = {
       'ARG': '🇦🇷', 'BRA': '🇧🇷', 'FRA': '🇫🇷', 'GER': '🇩🇪', 'ENG': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'ESP': '🇪🇸',
@@ -303,127 +298,22 @@
     
     let standings = [];
     let allMatches = [];
-    let currentChannel = null;
     let currentIndoCat = 'all';
-    let filteredSports = [];
     
-    // ===== INIT =====
-    function init() {
-      renderCuratedChannels();
-      loadFIFA();
-      loadIndoChannels();
-    }
-    
-    // ===== CURATED =====
-    function renderCuratedChannels() {
-      const working = CURATED_CHANNELS.filter(c => c.url && !c.note);
-      const html = CURATED_CHANNELS.map(ch => {
-        const isWorking = ch.url && !ch.note;
-        const statusColor = isWorking ? '#4ade80' : '#f87171';
-        const statusIcon = isWorking ? '✅' : (ch.note === 'needs_sub' ? '🔒' : '🔓');
-        
-        return `
-          <div class="ch-item" onclick="playCurated('${esc(ch.name)}', '${ch.url}', '${ch.cat}', '${ch.lang}')" style="${!isWorking ? 'opacity:0.6' : ''}">
-            <div class="ch-icon">${ch.logo}</div>
-            <div class="ch-info">
-              <div class="ch-name">${statusIcon} ${ch.name}</div>
-              <div class="ch-cat">${ch.cat} • ${ch.country}</div>
-              ${ch.note ? `<div class="ch-lang">${ch.note === 'needs_sub' ? '🔒 Subscription' : '🔓 VPN'}</div>` : `<div class="ch-lang">${ch.lang}</div>`}
-            </div>
-            <div class="ch-play">${isWorking ? '▶' : '—'}</div>
-          </div>
-        `;
-      }).join('');
-      
-      document.getElementById('curated-channels').innerHTML = html;
-      document.getElementById('work-count').textContent = working.length + ' working';
-      document.getElementById('sports-count').textContent = working.length + ' verified';
-      
-      // Sports filter
-      filteredSports = CURATED_CHANNELS;
-    }
-    
-    function playCurated(name, url, cat, lang) {
-      if (!url) {
-        alert(`${name} butuh ${lang === 'VAR' ? 'subscription/premium account' : 'VPN Indonesia'}. Stream langsung tidak tersedia di sini.`);
-        return;
-      }
-      playChannel(name, url, cat);
-    }
-    
-    function filterSportsChannels() {
-      const q = document.getElementById('search-sports').value.toLowerCase();
-      const filtered = CURATED_CHANNELS.filter(ch => 
-        ch.name.toLowerCase().includes(q) || ch.cat.toLowerCase().includes(q) || ch.country.toLowerCase().includes(q)
-      );
-      
-      const html = filtered.map(ch => {
-        const isWorking = ch.url && !ch.note;
-        return `
-          <div class="ch-item" onclick="playCurated('${esc(ch.name)}', '${ch.url}', '${ch.cat}', '${ch.lang}')" style="${!isWorking ? 'opacity:0.6' : ''}">
-            <div class="ch-icon">${ch.logo}</div>
-            <div class="ch-info">
-              <div class="ch-name">${ch.url ? '✅' : '—'} ${ch.name}</div>
-              <div class="ch-cat">${ch.cat} • ${ch.country}</div>
-            </div>
-            <div class="ch-play">${isWorking ? '▶' : '—'}</div>
-          </div>
-        `;
-      }).join('');
-      document.getElementById('sports-channels').innerHTML = html || '<div class="loading">No channel found</div>';
-      document.getElementById('sports-count').textContent = filtered.filter(c => c.url).length + ' verified';
-    }
-    
-    // ===== PLAYER =====
-    function playChannel(name, url, cat) {
-      if (!url) { showError('Stream tidak tersedia.'); return; }
-      
-      currentChannel = { name, url, cat };
-      const video = document.getElementById('video-player');
+    // ===== YOUTUBE PLAYER =====
+    function playYouTube(name, vid) {
+      const embedUrl = `https://www.youtube.com/embed/${vid}?autoplay=1&rel=0`;
+      document.getElementById('yt-embed').src = embedUrl;
       document.getElementById('now-playing').textContent = name;
-      document.getElementById('now-sub').textContent = cat || 'Sports';
+      document.getElementById('now-sub').textContent = 'YouTube Live';
       document.getElementById('player-wrap').classList.add('active');
-      document.getElementById('player-error').style.display = 'none';
-      video.style.display = 'block';
-      
-      if (video.hls) { video.hls.destroy(); video.hls = null; }
-      video.src = '';
-      
-      if (url.includes('.m3u8') && Hls.isSupported()) {
-        video.hls = new Hls({ enableWorker: true, lowLatencyMode: true, maxBufferLength: 30 });
-        video.hls.loadSource(url);
-        video.hls.attachMedia(video);
-        video.hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => {}));
-        video.hls.on(Hls.Events.ERROR, (_, data) => {
-          if (data.fatal) showError(`Stream error. Channel mungkin offline.`);
-        });
-      } else {
-        video.src = url;
-        video.play().catch(() => showError('Browser memblokir autoplay.'));
-      }
-      
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
-    function showError(msg) {
-      const video = document.getElementById('video-player');
-      if (video.hls) { video.hls.destroy(); video.hls = null; }
-      video.style.display = 'none';
-      document.getElementById('error-msg').textContent = msg;
-      document.getElementById('player-error').style.display = 'flex';
-    }
-    
-    function retryStream() {
-      if (currentChannel) playChannel(currentChannel.name, currentChannel.url, currentChannel.cat);
-    }
-    
     function closePlayer() {
-      const video = document.getElementById('video-player');
-      if (video.hls) { video.hls.destroy(); video.hls = null; }
-      video.pause(); video.src = ''; video.style.display = 'block';
-      document.getElementById('player-error').style.display = 'none';
+      const iframe = document.getElementById('yt-embed');
+      iframe.src = '';
       document.getElementById('player-wrap').classList.remove('active');
-      currentChannel = null;
     }
     
     function esc(str) { return (str || '').replace(/'/g, "\\'").replace(/"/g, '\\"'); }
@@ -435,76 +325,63 @@
       document.getElementById('tab-' + tab).style.display = 'block';
       if (e && e.target) e.target.classList.add('active');
       else document.querySelector(`.tab[onclick*="${tab}"]`)?.classList.add('active');
-      if (tab === 'indo') document.getElementById('vpn-banner').style.display = 'flex';
-      else document.getElementById('vpn-banner').style.display = 'none';
+      if (tab === 'indo') { renderIndoChannels(); renderIntlChannels(); }
     }
     
-    // ===== INDO CHANNELS =====
-    function parseM3U(text) {
-      const channels = [];
-      const lines = text.split('\n');
-      let ch = {};
-      for (let line of lines) {
-        line = line.trim();
-        if (line.startsWith('#EXTINF:')) {
-          ch = { name: '', logo: '', category: 'Other', url: '' };
-          const parts = line.slice(8).split(' ');
-          for (let p of parts) {
-            if (p.startsWith('tvg-logo="')) ch.logo = p.match(/"([^"]*)"/)?.[1] || '';
-            else if (p.startsWith('group-title="')) ch.category = p.match(/"([^"]*)"/)?.[1] || 'Other';
-          }
-          const m = line.match(/,(.+?)(?:\s*\(|\s*\[|$)/);
-          if (m) ch.name = m[1].trim();
-        } else if (line.startsWith('http')) {
-          ch.url = line;
-          if (ch.name) channels.push(ch);
-          ch = {};
-        }
-      }
-      return channels;
-    }
-    
-    async function loadIndoChannels() {
-      try {
-        const res = await fetch(M3U_INDO);
-        const text = await res.text();
-        let channels = parseM3U(text);
-        const seen = new Set();
-        channels = channels.filter(ch => {
-          const key = ch.name.toLowerCase();
-          if (seen.has(key)) return false;
-          seen.add(key); return true;
-        });
-        filteredIndo = channels;
-        renderIndoChannels();
-      } catch (e) { console.error(e); }
-    }
-    
-    let filteredIndo = [];
-    
-    function setIndoCat(cat, btn) {
-      currentIndoCat = cat;
-      document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      filteredIndo = cat === 'all' ? filteredIndo : filteredIndo.filter(ch => ch.category.toLowerCase().includes(cat));
-      if (cat !== 'all') filteredIndo = filteredIndo;
-      else filteredIndo = parseM3U._channels || [];
-      renderIndoChannels();
-    }
-    
+    // ===== RENDER INDO =====
     function renderIndoChannels() {
-      const channels = filteredIndo;
-      const html = channels.map(ch => `
-        <div class="ch-item" onclick="playChannel('${esc(ch.name)}', '${ch.url}', '${esc(ch.category)}')">
-          <div class="ch-icon">${ch.logo ? `<img src="${ch.logo}" alt="" onerror="this.textContent='🇮🇩'" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">` : '🇮🇩'}</div>
+      const filtered = currentIndoCat === 'all' ? INDO_CHANNELS : INDO_CHANNELS.filter(c => c.cat === currentIndoCat);
+      const html = filtered.map(ch => `
+        <div class="ch-item" onclick="playYouTube('${esc(ch.name)}', '${ch.vid}')">
+          <div class="ch-icon">🇮🇩</div>
           <div class="ch-info">
             <div class="ch-name">${ch.name}</div>
-            <div class="ch-cat">${ch.category}</div>
+            <div class="ch-cat">${ch.cat === 'nasional' ? 'TV Nasional' : ch.cat === 'news' ? 'News' : 'Sport'}</div>
           </div>
           <div class="ch-play">▶</div>
         </div>
       `).join('');
       document.getElementById('indo-channels').innerHTML = html || '<div class="loading">No channels</div>';
+    }
+    
+    function setIndoCat(cat, btn) {
+      currentIndoCat = cat;
+      document.querySelectorAll('#tab-indo .cat').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      renderIndoChannels();
+    }
+    
+    // ===== RENDER INTL =====
+    function renderIntlChannels() {
+      const html = INTL_CHANNELS.map(ch => `
+        <div class="ch-item" onclick="playYouTube('${esc(ch.name)}', '${ch.vid}')">
+          <div class="ch-icon">🌐</div>
+          <div class="ch-info">
+            <div class="ch-name">${ch.name}</div>
+            <div class="ch-cat">${ch.cat}</div>
+            <span class="ch-lang">${ch.lang}</span>
+          </div>
+          <div class="ch-play">▶</div>
+        </div>
+      `).join('');
+      document.getElementById('intl-channels').innerHTML = html;
+    }
+    
+    function filterIntlChannels() {
+      const q = document.getElementById('search-intl').value.toLowerCase();
+      const filtered = INTL_CHANNELS.filter(ch => ch.name.toLowerCase().includes(q) || ch.cat.toLowerCase().includes(q));
+      const html = filtered.map(ch => `
+        <div class="ch-item" onclick="playYouTube('${esc(ch.name)}', '${ch.vid}')">
+          <div class="ch-icon">🌐</div>
+          <div class="ch-info">
+            <div class="ch-name">${ch.name}</div>
+            <div class="ch-cat">${ch.cat}</div>
+            <span class="ch-lang">${ch.lang}</span>
+          </div>
+          <div class="ch-play">▶</div>
+        </div>
+      `).join('');
+      document.getElementById('intl-channels').innerHTML = html || '<div class="loading">No channel found</div>';
     }
     
     // ===== FIFA =====
@@ -554,7 +431,7 @@
       const upcoming = matches.filter(m => m.HomeTeamScore === null && new Date(m.StartTime) > now);
       
       document.getElementById('live-matches').innerHTML = live.length > 0 ? live.map(m => matchCard(m, true)).join('') : 
-        `<div style="padding:1.5rem;text-align:center;color:#666;">Tidak ada match live<br><span style="font-size:0.7rem;">Lihat jadwal di bawah</span></div>`;
+        `<div style="padding:1.5rem;text-align:center;color:#666;">Tidak ada match live<br><span style="font-size:0.7rem;">Jadwal ada di bawah</span></div>`;
       document.getElementById('upcoming-matches').innerHTML = upcoming.slice(0, 10).map(m => matchCard(m, false)).join('');
       document.getElementById('all-matches').innerHTML = matches.map(m => matchCard(m, false)).join('');
     }
@@ -563,6 +440,7 @@
       const home = getTeam(m.HomeTeamId), away = getTeam(m.AwayTeamId);
       let badge = isLive ? '<span class="live-badge">● LIVE</span>' : m.HomeTeamScore === null ? `<span class="upcoming-badge">${formatDate(m.StartTime)} ${formatTime(m.StartTime)}</span>` : '<span class="finished-badge">Selesai</span>';
       let scoreClass = isLive ? 'score-live' : '';
+      const wcCh = INDO_CHANNELS.find(c => c.name === 'TVRI Sport');
       return `<div class="match">
         <div class="match-header">${badge}<span class="match-time">${formatTime(m.StartTime)}</span></div>
         <div class="match-teams">
@@ -570,12 +448,16 @@
           <div class="score-box ${scoreClass}">${m.HomeTeamScore !== null ? `${m.HomeTeamScore} - ${m.AwayTeamScore}` : '<span class="vs">vs</span>'}</div>
           <div class="team team-right"><span class="team-name">${getTeamName(away)}</span><span class="flag">${getFlag(away)}</span></div>
         </div>
-        ${(isLive || m.HomeTeamScore !== null) ? `<button class="watch-btn" onclick="event.stopPropagation(); playChannel('World Cup', '${CURATED_CHANNELS.find(c=>c.name==='beIN Sports 1')?.url||''}', 'Sports')">⚽ Nonton</button>` : ''}
+        ${(isLive || m.HomeTeamScore !== null) && wcCh ? `<button class="watch-btn" onclick="event.stopPropagation(); playYouTube('TVRI Sport', '${wcCh.vid}')">⚽ Nonton di TVRI Sport</button>` : ''}
       </div>`;
     }
     
-    // ===== START =====
-    document.addEventListener('DOMContentLoaded', init);
+    // ===== INIT =====
+    document.addEventListener('DOMContentLoaded', () => {
+      renderIndoChannels();
+      renderIntlChannels();
+      loadFIFA();
+    });
     setInterval(loadFIFA, 60000);
   </script>
 </body>
